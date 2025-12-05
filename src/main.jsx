@@ -3,7 +3,7 @@ import './index.css'
 import App from './App.jsx'
 import {createBrowserRouter, RouterProvider} from "react-router";
 import {StrictMode} from "react";
-import {Dashboard} from "./pages/Dashboard.jsx";
+import {Dashboard} from "./pages/dashboard/Dashboard.jsx";
 
 const router = createBrowserRouter([
     {
