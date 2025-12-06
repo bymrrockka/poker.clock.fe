@@ -13,9 +13,9 @@ function viewStatus(status) {
 export const GameElement = ({status, type, buyin, players, startDateTime,}) => {
     return (
         <ListItemButton>
-            <Typography>
+            <Typography sx={{paddingY: 1, paddingX: 2.5, border: 1, borderRadius: 7, borderColor: "lightgray"}}>
                 Status: {viewStatus(status)}
-                <Divider/>
+                <Divider sx={{marginY: 1}}/>
                 Type: {type}
                 <br/>
                 Buy in: {buyin}
