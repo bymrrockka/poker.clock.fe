@@ -1,6 +1,6 @@
 import {Component} from "react";
-import styles from "./Dashboard.module.css";
 import {GameList} from "../../components/games/GameList.jsx";
+import {List} from "@mui/material";
 
 const activeGames = [
     {
@@ -54,10 +54,10 @@ const finishedGames = [
 export class Dashboard extends Component {
     render() {
         return (
-            <div style={styles}>
+            <List>
                 <GameList header="Active games" type="active" games={activeGames}/>
                 <GameList header="Finished games" type="finished" games={finishedGames}/>
-            </div>
+            </List>
         )
     }
 }
