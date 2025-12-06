@@ -1,5 +1,7 @@
-import {Collapse, List, ListSubheader} from "@mui/material";
-import {GameElement} from "./GameElement.jsx";
+import {Collapse, List, ListItemButton, ListItemText} from "@mui/material";
+import {GameElement} from "./GameElement.jsx"
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 import React from "react";
 
 function countGames(games, type) {
@@ -11,37 +13,26 @@ function countGames(games, type) {
     }
 }
 
-export const GameList = ({type, header, games}) => {
-    const [open, setOpen] = React.useState(true);
+export const GameList = ({type, header, games, open = false}) => {
+    const [isOpen, setOpen] = React.useState(open);
 
     const handleClick = () => {
-        setOpen(!open);
+        setOpen(!isOpen);
     }
 
     return (
-        <Collapse in={open} timeout="auto" unmountOnExit>
-            <List
-                align="left"
-                sx={{
-                    width: '100%',
-                    maxWidth: 360,
-                    border: 1,
-                    borderRadius: 4,
-                    borderColor: "lightgray",
-                    // bgcolor: "background.paper"
-                }}
-                // component="div"
-                disablePadding
-                aria-labelledby="nested-list-subheader"
-                subheader={
-                    <ListSubheader component="h2" id="active-games">
-                        {header} {countGames(games, type)}
-                    </ListSubheader>
-                }>
-                {games.map((game) => (
-                    <GameElement {...game} />
-                ))}
-            </List>
-        </Collapse>
+        <>
+            <ListItemButton onClick={handleClick}>
+                <ListItemText>{header} ({countGames(games, type)})</ListItemText>
+                {isOpen ? <ExpandLess/> : <ExpandMore/>}
+            </ListItemButton>
+            <Collapse in={isOpen} timeout="auto" unmountOnExit>
+                <List disablePadding>
+                    {games.map((game) => (
+                        <GameElement {...game} />
+                    ))}
+                </List>
+            </Collapse>
+        </>
     )
 }

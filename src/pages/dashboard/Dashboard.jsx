@@ -1,6 +1,6 @@
 import {Component} from "react";
 import {GameList} from "../../components/games/GameList.jsx";
-import {List} from "@mui/material";
+import {List, Typography} from "@mui/material";
 
 const activeGames = [
     {
@@ -54,8 +54,16 @@ const finishedGames = [
 export class Dashboard extends Component {
     render() {
         return (
-            <List>
-                <GameList header="Active games" type="active" games={activeGames}/>
+            <List
+                align="left"
+                sx={{width: '100%', maxWidth: 360, minWidth: 240}}
+                component="div"
+                disablePadding
+            >
+                <Typography>
+                    Dashboard
+                </Typography>
+                <GameList header="Active games" type="active" games={activeGames} open/>
                 <GameList header="Finished games" type="finished" games={finishedGames}/>
             </List>
         )
