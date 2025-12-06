@@ -1,5 +1,5 @@
 import {Component} from "react";
-import {GameList} from "../../components/games/GameList.jsx";
+import {GameList} from "./GameList.jsx";
 import {List, Typography} from "@mui/material";
 
 const activeGames = [
