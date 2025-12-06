@@ -1,4 +1,4 @@
-import {Collapse, List, ListItemButton, ListItemText} from "@mui/material";
+import {Collapse, List, ListItemButton, ListItemText, ListSubheader} from "@mui/material";
 import {GameElement} from "./GameElement.jsx"
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -22,10 +22,12 @@ export const GameList = ({type, header, games, open = false}) => {
 
     return (
         <>
-            <ListItemButton onClick={handleClick}>
-                <ListItemText>{header} ({countGames(games, type)})</ListItemText>
-                {isOpen ? <ExpandLess/> : <ExpandMore/>}
-            </ListItemButton>
+            <ListSubheader >
+                <ListItemButton onClick={handleClick}>
+                    <ListItemText>{header} ({countGames(games, type)})</ListItemText>
+                    {isOpen ? <ExpandLess/> : <ExpandMore/>}
+                </ListItemButton>
+            </ListSubheader>
             <Collapse in={isOpen} timeout="auto" unmountOnExit>
                 <List disablePadding>
                     {games.map((game) => (

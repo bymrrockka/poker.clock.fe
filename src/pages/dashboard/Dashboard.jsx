@@ -60,7 +60,7 @@ export class Dashboard extends Component {
                 component="div"
                 disablePadding
             >
-                <Typography>
+                <Typography variant="h5">
                     Dashboard
                 </Typography>
                 <GameList header="Active games" type="active" games={activeGames} open/>
