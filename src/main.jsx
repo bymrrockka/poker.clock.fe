@@ -1,18 +1,21 @@
 import {createRoot} from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
 import {createBrowserRouter, RouterProvider} from "react-router";
 import {StrictMode} from "react";
 import {Dashboard} from "./pages/dashboard/Dashboard.jsx";
 import {alpha, createTheme, ThemeProvider} from "@mui/material";
+import {GameDashboard} from "./pages/game/GameDashboard.jsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App/>
+        element: <Dashboard/>
     }, {
         path: "/dashboard",
         element: <Dashboard/>
+    }, {
+        path: "/game/:id",
+        element: <GameDashboard/>
     }
 ])
 
