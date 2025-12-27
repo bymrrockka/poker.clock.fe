@@ -1,8 +1,9 @@
 import {Collapse, List, ListItemButton, ListItemText, ListSubheader, Paper, Typography} from "@mui/material";
 import {DateTime} from "luxon";
-import React from "react";
+import React, {useState} from "react";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
+import {Header} from "../../components/header/Header.jsx";
 
 const game = {
     status: "active",
@@ -12,8 +13,8 @@ const game = {
     startDateTime: "2025-10-31 18:14:02"
 }
 
-export const GameDashboard = () => {
-    const [isOpen, setOpen] = React.useState(open);
+export const GameDetails = () => {
+    const [isOpen, setOpen] = useState(open);
 
     const handleClick = () => {
         setOpen(!isOpen);
@@ -21,6 +22,7 @@ export const GameDashboard = () => {
 
     return (
         <Paper>
+            <Header />
             <Typography>
                 Status: {game.status}
                 <br/>
@@ -34,6 +36,7 @@ export const GameDashboard = () => {
                 <br/>
             </Typography>
             <br/>
+
             <ListSubheader>
                 <ListItemButton onClick={handleClick}>
                     <ListItemText> Players </ListItemText>
@@ -53,6 +56,7 @@ export const GameDashboard = () => {
                     ))}
                 </List>
             </Collapse>
+
         </Paper>
     )
 }

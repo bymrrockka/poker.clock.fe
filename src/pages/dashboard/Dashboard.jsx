@@ -1,4 +1,3 @@
-import {Component} from "react";
 import {GameList} from "./GameList.jsx";
 import {List, Typography} from "@mui/material";
 import {Header} from "../../components/header/Header.jsx";
@@ -58,24 +57,22 @@ const finishedGames = [
     },
 ]
 
-export class Dashboard extends Component {
-    render() {
-        return (
-            <>
-                <Header/>
-                <List
-                    align="left"
-                    sx={{width: '100%', maxWidth: 360, minWidth: 240}}
-                    component="div"
-                    disablePadding
-                >
-                    <Typography variant="h6" paddingBottom={1}>
-                        Dashboard
-                    </Typography>
-                    <GameList header="Active games" type="active" games={activeGames} open/>
-                    <GameList header="Finished games" type="finished" games={finishedGames}/>
-                </List>
-            </>
-        )
-    }
+export const Dashboard = () => {
+    return (
+        <>
+            <Header/>
+            <List
+                align="left"
+                sx={{width: '100%', maxWidth: 360, minWidth: 240}}
+                component="div"
+                disablePadding
+            >
+                <Typography variant="h6" paddingBottom={1}>
+                    Dashboard
+                </Typography>
+                <GameList header="Active games" type="active" games={activeGames} open/>
+                <GameList header="Finished games" type="finished" games={finishedGames}/>
+            </List>
+        </>
+    )
 }

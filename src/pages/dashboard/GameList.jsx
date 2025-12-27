@@ -2,7 +2,7 @@ import {Collapse, List, ListItemButton, ListItemText, ListSubheader, Paper} from
 import {GameElement} from "./GameElement.jsx"
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import React from "react";
+import React, {useState} from "react";
 
 function countGames(games, type) {
     if (type === "active") {
@@ -14,7 +14,7 @@ function countGames(games, type) {
 }
 
 export const GameList = ({type, header, games, open = false}) => {
-    const [isOpen, setOpen] = React.useState(open);
+    const [isOpen, setOpen] = useState(open);
 
     const handleClick = () => {
         setOpen(!isOpen);

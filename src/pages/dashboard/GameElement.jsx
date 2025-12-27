@@ -4,9 +4,8 @@ import {useNavigate} from "react-router";
 
 export const GameElement = ({id, type, buyin, players, startDateTime,}) => {
     const navigate = useNavigate()
-
-    const handleClick = () => {
-        navigate(`/game/${id}`);
+    function handleClick() {
+        navigate(`/game/${id}`)
     }
 
     return (
